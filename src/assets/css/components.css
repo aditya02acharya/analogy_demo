@@ -1,0 +1,1006 @@
+/*
+Components
+*/
+
+/*--------------------------------------
+Table of Contents
+========================================
+
+01. Custom Select
+02. Card
+03. Table
+04. Button
+05. Tippy
+06. Dropdown
+07. Modal
+08. Alert
+09. Tab
+*/
+
+
+
+/*
+Custom Select
+*/
+.custom-select {
+  @apply relative;
+
+  &-icon {
+    @apply absolute flex items-center top-0 right-0 bottom-0 mr-4 text-placeholder;
+  }
+}
+
+.form-control-addon-within {
+  @apply flex bg-input border border-border rounded w-full overflow-hidden;
+
+  &:focus-within {
+    @apply border-primary;
+  }
+}
+
+.form-control {
+  @apply appearance-none bg-input border border-border rounded w-full py-2 px-4;
+
+  &:focus {
+    @apply outline-none shadow-none border-primary;
+  }
+
+  &::placeholder {
+    @apply text-placeholder;
+  }
+}
+
+/*
+Card
+*/
+
+.dark .card {
+  &_hoverable {
+    &:hover {
+      @apply bg-primary bg-opacity-5;
+    }
+  }
+
+  &_selected {
+    @apply bg-primary bg-opacity-5;
+
+    &:hover {
+      @apply bg-primary bg-opacity-5;
+    }
+  }
+}
+
+.card {
+  @apply rounded-xl bg-foreground shadow;
+
+  &_hoverable {
+    &:hover {
+      @apply bg-primary-50;
+    }
+  }
+
+  &_selected {
+    @apply bg-primary-50;
+
+    &:hover {
+      @apply bg-primary-50;
+    }
+  }
+
+  &_row {
+    @apply flex flex-col w-full;
+
+    .image {
+      @apply relative m-5;
+      min-width: 180px;
+
+      img {
+        @apply object-cover;
+      }
+    }
+
+    .header {
+      @apply self-center m-5 mt-0;
+    }
+
+    .body {
+      @apply flex flex-col p-5 whitespace-nowrap border-t border-divider;
+    }
+
+    .actions {
+      @apply flex p-5 border-t border-divider;
+    }
+  }
+
+  &_column {
+    @apply flex flex-col w-full;
+
+    .image {
+      @apply relative m-5;
+
+      img {
+        @apply object-cover;
+      }
+    }
+
+    .header {
+      @apply m-5 mt-0;
+    }
+
+    .body {
+      @apply flex flex-col mt-auto p-5 whitespace-nowrap border-t border-divider;
+    }
+
+    .actions {
+      @apply flex p-5 border-t border-divider;
+    }
+  }
+
+  &_list {
+    @apply flex items-center p-5;
+
+    .image {
+      @apply flex-shrink-0 bg-primary;
+      width: 80px;
+      height: 80px;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+
+      &_icon {
+        @apply flex items-center justify-center bg-transparent;
+      }
+    }
+
+    .body {
+      @apply mx-5;
+    }
+
+    .actions {
+      @apply ml-auto;
+    }
+  }
+}
+
+@media screen(lg) {
+  .card {
+    &_row {
+      @apply flex-row;
+
+      .header {
+        @apply ml-0 mt-5;
+      }
+
+      .body {
+        @apply ml-auto border-t-0 border-l text-right;
+      }
+
+      .actions {
+        @apply flex-col border-t-0 border-l;
+      }
+    }
+  }
+}
+
+/*
+Table
+*/
+.dark .table {
+  tbody {
+    tr {
+      &.row_selected {
+        @apply bg-primary bg-opacity-5;
+
+        &:hover {
+          @apply bg-primary bg-opacity-5;
+        }
+      }
+    }
+  }
+
+  &_hoverable {
+    tbody {
+      tr {
+        &:hover {
+          @apply bg-primary bg-opacity-5;
+        }
+      }
+    }
+  }
+}
+
+.table {
+  thead {
+    @apply font-heading text-primary;
+
+    th {
+      @apply p-2;
+    }
+  }
+
+  tbody {
+    tr {
+      @apply border-t border-divider;
+
+      th {
+        @apply p-2;
+      }
+
+      td {
+        @apply px-2 py-4;
+      }
+
+      &.row_selected {
+        @apply bg-primary-50;
+
+        &:hover {
+          @apply bg-primary-50;
+        }
+      }
+    }
+  }
+
+  &_striped {
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          @apply bg-background;
+        }
+      }
+    }
+  }
+
+  &_bordered {
+    @apply border border-divider;
+
+    thead {
+      th {
+        @apply border border-divider;
+      }
+    }
+
+    tbody {
+      td {
+        @apply border border-divider;
+      }
+    }
+  }
+
+  &_borderless {
+    tbody {
+      tr {
+        @apply border-none;
+      }
+    }
+  }
+
+  &_hoverable {
+    tbody {
+      tr {
+        &:hover {
+          @apply bg-primary-50;
+        }
+      }
+    }
+  }
+
+  &_list {
+    th,
+    td {
+      &:first-child {
+        @apply pl-0;
+      }
+
+      &:last-child {
+        @apply pr-0;
+      }
+    }
+  }
+}
+
+/*
+Buttons
+*/
+.btn {
+  @apply inline-flex items-center rounded-full px-5 py-2 border border-transparent font-bold;
+  @apply text-component !important;
+  @apply transition-all duration-200 ease-linear;
+
+  &:hover {
+    @apply text-component;
+  }
+
+  &:disabled {
+    @apply opacity-50;
+  }
+
+  &_primary {
+    @apply bg-primary;
+
+    &:hover:not([disabled]) {
+      @apply bg-primary-700;
+    }
+  }
+
+  &_secondary {
+    @apply bg-secondary;
+
+    &:hover:not([disabled]) {
+      @apply bg-opacity-75;
+    }
+  }
+
+  &_success {
+    @apply bg-success;
+
+    &:hover:not([disabled]) {
+      @apply bg-opacity-75;
+    }
+  }
+
+  &_danger {
+    @apply bg-danger;
+
+    &:hover:not([disabled]) {
+      @apply bg-opacity-75;
+    }
+  }
+
+  &_warning {
+    @apply bg-warning;
+
+    &:hover:not([disabled]) {
+      @apply bg-opacity-75;
+    }
+  }
+
+  &_info {
+    @apply bg-info;
+
+    &:hover:not([disabled]) {
+      @apply bg-opacity-75;
+    }
+  }
+
+  &_outlined {
+    @apply bg-transparent;
+
+    &:hover:not([disabled]) {
+      @apply bg-transparent;
+    }
+
+    &.btn {
+      &_primary {
+        @apply border-primary;
+        @apply text-primary !important;
+
+        &:hover:not([disabled]) {
+          @apply border-primary-700;
+          @apply text-primary-700 !important;
+        }
+      }
+
+      &_secondary {
+        @apply border-secondary;
+        @apply text-secondary !important;
+
+        &:hover:not([disabled]) {
+          @apply border-opacity-75;
+          @apply text-opacity-75 !important;
+        }
+      }
+
+      &_success {
+        @apply border-success;
+        @apply text-success !important;
+
+        &:hover:not([disabled]) {
+          @apply border-opacity-75;
+          @apply text-opacity-75 !important;
+        }
+      }
+
+      &_danger {
+        @apply border-danger;
+        @apply text-danger !important;
+
+        &:hover:not([disabled]) {
+          @apply border-opacity-75;
+          @apply text-opacity-75 !important;
+        }
+      }
+
+      &_warning {
+        @apply border-warning;
+        @apply text-warning !important;
+
+        &:hover:not([disabled]) {
+          @apply border-opacity-75;
+          @apply text-opacity-75 !important;
+        }
+      }
+
+      &_info {
+        @apply border-info;
+        @apply text-info !important;
+
+        &:hover:not([disabled]) {
+          @apply border-opacity-75;
+          @apply text-opacity-75 !important;
+        }
+      }
+    }
+  }
+
+  &-icon {
+    @apply w-8 h-8 p-0 justify-center text-xl leading-none;
+
+    &_large {
+      @apply w-10 h-10;
+    }
+  }
+}
+
+/*
+Button Group
+*/
+.dark .btn-group {
+  .btn {
+    + .btn:not(.btn_outlined) {
+      @apply border-l-gray-900;
+    }
+  }
+}
+
+.btn-group {
+  @apply inline-flex;
+
+  .btn {
+    + .btn:not(.btn_outlined) {
+      @apply border-l-white;
+    }
+
+    &:not(:first-of-type) {
+      @apply rounded-tl-none rounded-bl-none;
+    }
+
+    &:not(:last-of-type) {
+      @apply rounded-tr-none rounded-br-none;
+    }
+  }
+
+  .btn_outlined {
+    + .btn {
+      @apply border-l-0;
+    }
+  }
+}
+
+/*
+Tippy / Tooltip / Popover
+*/
+.dark {
+  .tippy-box {
+    &[data-theme~="light-border"] {
+      &[data-placement^="top"] > .tippy-arrow {
+        &::before {
+          @apply border-t-gray-800;
+        }
+      }
+
+      &[data-placement^="bottom"] > .tippy-arrow {
+        &::before {
+          @apply border-b-gray-800;
+        }
+      }
+
+      &[data-placement^="left"] > .tippy-arrow {
+        &::before {
+          @apply border-l-gray-800;
+        }
+      }
+
+      &[data-placement^="right"] > .tippy-arrow {
+        &::before {
+          @apply border-r-gray-800;
+        }
+      }
+
+      > .tippy-svg-arrow {
+        @apply fill-gray-800;
+      }
+    }
+  }
+}
+
+.tippy-box {
+  &[data-theme~="light-border"] {
+    @apply bg-foreground rounded-xl border border-divider shadow text-normal;
+
+    > .tippy-backdrop {
+      @apply bg-foreground;
+    }
+
+    &[data-placement^="top"] > .tippy-arrow {
+      &::before {
+        @apply border-t-white;
+      }
+
+      &::after {
+        @apply border-t-divider;
+      }
+    }
+
+    &[data-placement^="bottom"] > .tippy-arrow {
+      &::before {
+        @apply border-b-white;
+        bottom: 15px;
+      }
+
+      &::after {
+        @apply border-b-divider;
+      }
+    }
+
+    &[data-placement^="left"] > .tippy-arrow {
+      &::before {
+        @apply border-l-white;
+      }
+
+      &::after {
+        @apply border-l-divider;
+      }
+    }
+
+    &[data-placement^="right"] > .tippy-arrow {
+      &::before {
+        @apply border-r-white;
+        right: 15px;
+      }
+
+      &::after {
+        @apply border-r-divider;
+      }
+    }
+
+    > .tippy-svg-arrow {
+      @apply fill-white;
+    }
+
+    > .tippy-content {
+      @apply rounded-xl p-0 overflow-hidden;
+
+      .dropdown-menu {
+        @apply block;
+      }
+
+      .custom-dropdown-menu {
+        @apply block;
+      }
+
+      .search-select-menu {
+        @apply block;
+      }
+    }
+  }
+
+  &[data-theme~="tooltip"] {
+    > .tippy-content {
+      @apply px-5 py-2;
+    }
+  }
+
+  &[data-theme~="popover"] {
+    > .tippy-content {
+      @apply p-5;
+    }
+  }
+}
+
+/*
+Dropdown
+*/
+.dropdown-menu {
+  @apply hidden p-5;
+
+  a,
+  button {
+    @apply block mb-2 text-normal;
+
+    &:hover {
+      @apply text-primary;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  h6 {
+    @apply mb-2 text-muted;
+  }
+
+  hr {
+    @apply mb-2 border-divider;
+  }
+}
+
+/*
+Custom Dropdown
+*/
+.custom-dropdown-menu {
+  @apply hidden;
+}
+
+/*
+Modal
+*/
+.modal {
+  @apply hidden fixed top-0 right-0 bottom-0 left-0 w-full h-full overflow-y-auto z-50;
+
+  .modal-dialog {
+    @apply flex mx-auto p-5;
+
+    &_centered {
+      @apply items-center h-full;
+    }
+
+    &_scrollable {
+      @apply max-h-screen;
+
+      .modal-content {
+        @apply flex flex-col;
+
+        .modal-body {
+          @apply overflow-y-auto;
+        }
+      }
+    }
+
+    .modal-content {
+      @apply rounded-xl bg-foreground shadow;
+
+      .modal-header {
+        @apply flex flex-shrink-0 items-center p-5 border-b border-divider;
+
+        .close {
+          @apply ml-auto text-2xl leading-none;
+
+          &:hover {
+            @apply text-primary;
+          }
+        }
+      }
+
+      .modal-body {
+        @apply m-5;
+      }
+
+      .modal-footer {
+        @apply flex flex-shrink-0 p-5 border-t border-divider;
+      }
+    }
+  }
+
+  &.active {
+    @apply block;
+  }
+
+  &_aside {
+    .modal-dialog {
+      @apply relative mr-0 h-full;
+      width: 320px;
+
+      .modal-content {
+        @apply absolute flex flex-col top-0 right-0 bottom-0 rounded-none;
+
+        .modal-header {
+          min-height: 5rem;
+        }
+
+        .modal-body {
+          @apply overflow-y-scroll;
+        }
+
+        .modal-footer {
+          @apply mt-auto;
+        }
+      }
+    }
+  }
+}
+
+/*
+Alerts
+*/
+.alert {
+  &-wrapper {
+    @apply overflow-y-hidden;
+    @apply transition-all duration-200 ease-linear;
+  }
+
+  @apply relative border border-transparent rounded-xl px-5 py-4 text-component;
+
+  strong {
+    @apply mr-2;
+  }
+
+  .dismiss {
+    @apply absolute top-0 right-0 mt-2 mr-4 text-2xl leading-normal;
+
+    &:hover {
+      @apply text-white;
+    }
+  }
+
+  &_primary {
+    @apply bg-primary;
+  }
+
+  &_secondary {
+    @apply bg-secondary;
+  }
+
+  &_success {
+    @apply bg-success;
+  }
+
+  &_danger {
+    @apply bg-danger;
+  }
+
+  &_warning {
+    @apply bg-warning;
+  }
+
+  &_info {
+    @apply bg-info;
+  }
+
+  &_outlined {
+    @apply bg-transparent;
+
+    &.alert {
+      &_primary {
+        @apply border-primary text-primary;
+
+        .dismiss {
+          &:hover {
+            @apply text-primary;
+          }
+        }
+      }
+
+      &_secondary {
+        @apply border-secondary text-secondary;
+
+        .dismiss {
+          &:hover {
+            @apply text-secondary;
+          }
+        }
+      }
+
+      &_success {
+        @apply border-success text-success;
+
+        .dismiss {
+          &:hover {
+            @apply text-success;
+          }
+        }
+      }
+
+      &_danger {
+        @apply border-danger text-danger;
+
+        .dismiss {
+          &:hover {
+            @apply text-danger;
+          }
+        }
+      }
+
+      &_warning {
+        @apply border-warning text-warning;
+
+        .dismiss {
+          &:hover {
+            @apply text-warning;
+          }
+        }
+      }
+
+      &_info {
+        @apply border-info text-info;
+
+        .dismiss {
+          &:hover {
+            @apply text-info;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+Tab
+*/
+.tab-nav {
+  @apply flex flex-nowrap border-b border-divider;
+
+  a,
+  .nav-link {
+    @apply relative inline-block pb-1 font-heading font-bold;
+
+    &:before {
+      @apply absolute;
+      content: "";
+    }
+
+    &.active {
+      @apply text-primary;
+
+      &:before {
+        @apply h-1 right-0 left-0 bg-primary rounded-full;
+        bottom: -2px;
+      }
+    }
+
+    + a,
+    + .nav-link {
+      @apply ml-4;
+    }
+  }
+}
+
+/*
+Search & Select
+*/
+.search-select {
+  @apply relative;
+
+  [data-tippy-root] {
+    @apply w-full;
+  }
+
+  .search-select-menu {
+    @apply hidden w-full p-2;
+    min-width: 200px;
+
+    h6 {
+      @apply mt-3 mx-2 mb-1 text-muted;
+
+      &:first-child {
+        @apply mt-2;
+      }
+    }
+
+    .item {
+      @apply px-2 py-1 rounded cursor-pointer;
+
+      &.active {
+        @apply bg-background;
+      }
+
+      &:hover {
+        @apply bg-primary text-white;
+      }
+    }
+  }
+}
+
+/*
+Forms
+*/
+
+/*
+Label
+*/
+.label {
+  @apply text-sm font-bold;
+}
+
+/*
+Input
+*/
+.form-control {
+  @apply appearance-none bg-input border border-border rounded w-full py-2 px-4;
+
+  &:focus {
+    @apply outline-none shadow-none border-primary;
+  }
+
+  &::placeholder {
+    @apply text-placeholder;
+  }
+}
+
+/*
+Custom Select
+*/
+.custom-select {
+  @apply relative;
+
+  &-icon {
+    @apply absolute flex items-center top-0 right-0 bottom-0 mr-4 text-placeholder;
+  }
+}
+
+[dir="rtl"] {
+  .custom-select {
+    &-icon {
+      @apply right-auto left-0 mr-0 ml-4;
+    }
+  }
+}
+
+.form-control-addon-within {
+  @apply flex bg-input border border-border rounded w-full overflow-hidden;
+
+  &:focus-within {
+    @apply border-primary;
+  }
+}
+
+.badge {
+  @apply inline-flex items-center px-2 border border-transparent text-xs text-component rounded-full;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+  &_primary {
+    @apply bg-primary;
+  }
+
+  &_secondary {
+    @apply bg-secondary;
+  }
+
+  &_success {
+    @apply bg-success;
+  }
+
+  &_danger {
+    @apply bg-danger;
+  }
+
+  &_warning {
+    @apply bg-warning;
+  }
+
+  &_info {
+    @apply bg-info;
+  }
+
+  &_outlined {
+    @apply bg-transparent;
+
+    &.badge {
+      &_primary {
+        @apply border-primary text-primary;
+      }
+
+      &_secondary {
+        @apply border-secondary text-secondary;
+      }
+
+      &_success {
+        @apply border-success text-success;
+      }
+
+      &_danger {
+        @apply border-danger text-danger;
+      }
+
+      &_warning {
+        @apply border-warning text-warning;
+      }
+
+      &_info {
+        @apply border-info text-info;
+      }
+    }
+  }
+}

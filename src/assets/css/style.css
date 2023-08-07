@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Nunito+Sans:400,700&display=swap");
+
+/* Tippy.js */
+@import "../../../node_modules/tippy.js/dist/tippy.css";
+@import "../../../node_modules/tippy.js/themes/light-border.css";
+@import "../../../node_modules/tippy.js/animations/scale.css";
+@import "../../../node_modules/tippy.js/animations/shift-toward-extreme.css";
+
+/* Main */
+@import "../../../node_modules/tailwindcss/base.css";
+@import "base.css";
+@import "../../../node_modules/tailwindcss/components.css";
+@import "sections.css";
+@import "../../../node_modules/tailwindcss/utilities.css";
+@import "components.css";
+:root {
+  /* Primary */
+  --color-primary: theme("skin.sky.DEFAULT");
+  --color-primary-50: theme("skin.sky.50");
+  --color-primary-100: theme("skin.sky.100");
+  --color-primary-200: theme("skin.sky.200");
+  --color-primary-300: theme("skin.sky.300");
+  --color-primary-400: theme("skin.sky.400");
+  --color-primary-500: theme("skin.sky.500");
+  --color-primary-600: theme("skin.sky.600");
+  --color-primary-700: theme("skin.sky.700");
+  --color-primary-800: theme("skin.sky.800");
+  --color-primary-900: theme("skin.sky.900");
+
+  /* Gray */
+  --color-gray-50: theme("skin.slate.50");
+  --color-gray-100: theme("skin.slate.100");
+  --color-gray-200: theme("skin.slate.200");
+  --color-gray-300: theme("skin.slate.300");
+  --color-gray-400: theme("skin.slate.400");
+  --color-gray-500: theme("skin.slate.500");
+  --color-gray-600: theme("skin.slate.600");
+  --color-gray-700: theme("skin.slate.700");
+  --color-gray-800: theme("skin.slate.800");
+  --color-gray-900: theme("skin.slate.900");
+
+  /* Secondary */
+  --color-secondary: theme("skin.secondary.DEFAULT");
+
+  --color-text-normal: var(--color-gray-600);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-highlighted: var(--color-gray-700);
+  --color-text-placeholder: var(--color-gray-400);
+  --color-text-component: theme("skin.white");
+
+  --color-divider: var(--color-gray-200);
+  --color-border: var(--color-gray-300);
+
+  --color-background: var(--color-gray-100);
+  --color-foreground: theme("skin.white");
+  --color-input: theme("skin.white");
+
+  /* Fonts */
+  --font-body: "Nunito Sans";
+  --font-heading: "Nunito";
+}
